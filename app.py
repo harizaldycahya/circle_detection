@@ -18,11 +18,11 @@ def main():
         st.sidebar.image(uploaded_file)
         converted_img = np.array(image.convert('RGB'))
         gray_scale = cv2.cvtColor(uploaded_file, cv2.COLOR_RGB2GRAY)
-        img = cv2.medianBlur(gray_scale, 5)
+        # img = cv2.medianBlur(gray_scale, 5)
         output = image.copy()
 
 
-        st.image(img)
+        st.image(gray_scale)
 
         
         # col1, col2 = st.columns( [0.5, 0.5])
