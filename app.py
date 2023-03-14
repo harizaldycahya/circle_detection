@@ -12,11 +12,11 @@ def main():
     maxRadiusInput = st.sidebar.slider(
         'Select a range of values',
         0.0, 100.0, (25.0, 75.0))
-    st.write('Values:', values)
+    st.write('Max Radius:', maxRadiusInput)
     minRadiusInput = st.sidebar.slider(
         'Select a range of values',
         0.0, 100.0, (25.0, 75.0))
-    st.write('Values:', values)
+    st.write('Min Radius:', minRadiusInput)
     uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
 
     #Add 'before' and 'after' columns
