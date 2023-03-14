@@ -19,7 +19,6 @@ def main():
         'Select a param2 of values',
         0, 100, 25)
     # tipe=type(maxRadiusInput)
-    st.write(tipe)
     st.write('Max Radius:', maxRadiusInput)
     uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
 
