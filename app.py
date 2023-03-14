@@ -11,7 +11,7 @@ def main():
     st.text("loremdsadasdasdasd")
     maxRadiusInput = st.sidebar.slider(
         'Select a range of values',
-        0, 100, (25, 75))
+        0, 100, 25)
     tipe=type(maxRadiusInput)
     st.write(tipe)
     st.write('Max Radius:', maxRadiusInput)
