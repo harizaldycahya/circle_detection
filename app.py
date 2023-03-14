@@ -21,7 +21,7 @@ def main():
         # img = cv2.medianBlur(gray_scale, 5)
         gray_scale = cv2.medianBlur(gray_scale, 5)
         rows = gray_scale.shape[0]
-        circles = cv.HoughCircles(gray_scale, cv.HOUGH_GRADIENT, 1, rows / 8,
+        circles = cv2.HoughCircles(gray_scale, cv2.HOUGH_GRADIENT, 1, rows / 8,
                                 param1=100, param2=30,
                                 minRadius=1, maxRadius=30)
         st.image(gray_scale)
