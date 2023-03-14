@@ -11,7 +11,7 @@ def main():
     st.text("loremdsadasdasdasd")
     maxRadiusInput = st.sidebar.slider(
         'Select a range of values',
-        0.0, 100.0, (25.0, 75.0))
+        0, 100, (25, 75))
     st.write('Max Radius:', maxRadiusInput)
     uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
 
