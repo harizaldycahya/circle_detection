@@ -14,7 +14,7 @@ def main():
 
     #Add 'before' and 'after' columns
     if uploaded_file is not None:
-        # image = Image.open(uploaded_file)
+        image = Image.open(uploaded_file)
         st.sidebar.image(uploaded_file)
         converted_img = np.array(image.convert('RGB'))
         gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
