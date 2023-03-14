@@ -12,7 +12,13 @@ def main():
     maxRadiusInput = st.sidebar.slider(
         'Select a range of values',
         0, 100, 25)
-    tipe=type(maxRadiusInput)
+    param1 = st.sidebar.slider(
+        'Select a param1 of values',
+        0, 100, 25)
+    param2 = st.sidebar.slider(
+        'Select a param2 of values',
+        0, 100, 25)
+    # tipe=type(maxRadiusInput)
     st.write(tipe)
     st.write('Max Radius:', maxRadiusInput)
     uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
@@ -27,7 +33,7 @@ def main():
         gray_scale = cv2.medianBlur(gray_scale, 5)
         rows = gray_scale.shape[0]
         circles = cv2.HoughCircles(gray_scale, cv2.HOUGH_GRADIENT, 1, rows / 8,
-                                param1=100, param2=30,
+                                param1=param1, param2=param2,
                                 minRadius=0, maxRadius=maxRadiusInput)
 
 
