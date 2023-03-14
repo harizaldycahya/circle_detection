@@ -24,7 +24,20 @@ def main():
         circles = cv2.HoughCircles(gray_scale, cv2.HOUGH_GRADIENT, 1, rows / 8,
                                 param1=100, param2=30,
                                 minRadius=1, maxRadius=30)
-        st.image(gray_scale)
+
+
+        if circles is not None:
+            circles = np.uint16(np.around(circles))
+            for i in circles[0, :]:
+                center = (i[0], i[1])
+                # circle center
+                cv.circle(converted_img, center, 1, (0, 100, 100), 3)
+                # circle outline
+                radius = i[2]
+                cv.circle(converted_img, center, radius, (255, 0, 255), 3)
+
+
+        st.image(converted_img)
 
 if __name__ == '__main__':
     main()
