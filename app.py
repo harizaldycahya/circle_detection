@@ -31,10 +31,10 @@ def main():
             for i in circles[0, :]:
                 center = (i[0], i[1])
                 # circle center
-                cv.circle(converted_img, center, 1, (0, 100, 100), 3)
+                cv2.circle(converted_img, center, 1, (0, 100, 100), 3)
                 # circle outline
                 radius = i[2]
-                cv.circle(converted_img, center, radius, (255, 0, 255), 3)
+                cv2.circle(converted_img, center, radius, (255, 0, 255), 3)
 
 
         st.image(converted_img)
