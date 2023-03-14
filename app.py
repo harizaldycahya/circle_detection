@@ -13,10 +13,6 @@ def main():
         'Select a range of values',
         0.0, 100.0, (25.0, 75.0))
     st.write('Max Radius:', maxRadiusInput)
-    minRadiusInput = st.sidebar.slider(
-        'Select a range of values',
-        0.0, 100.0, (25.0, 75.0))
-    st.write('Min Radius:', minRadiusInput)
     uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
 
     #Add 'before' and 'after' columns
@@ -30,7 +26,7 @@ def main():
         rows = gray_scale.shape[0]
         circles = cv2.HoughCircles(gray_scale, cv2.HOUGH_GRADIENT, 1, rows / 8,
                                 param1=100, param2=30,
-                                minRadius=minRadiusInput, maxRadius=maxRadiusInput)
+                                minRadius=0, maxRadius=maxRadiusInput)
 
 
         if circles is not None:
