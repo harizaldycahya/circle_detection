@@ -17,27 +17,31 @@ def main():
         image = Image.open(uploaded_file)
         st.sidebar.image(uploaded_file)
         converted_img = np.array(image.convert('RGB'))
-        # gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
+
+
+        # image = cv2.imread(args["image"])
+        output = image.copy()
+        gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
+
+
+        # tambahan
+        # detect circles in the image
+        circles = cv2.HoughCircles(gray_scale, cv2.HOUGH_GRADIENT, 1.2, 100)
+        # ensure at least some circles were found
+        if circles is not None:
+            # convert the (x, y) coordinates and radius of the circles to integers
+            circles = np.round(circles[0, :]).astype("int")
+            # loop over the (x, y) coordinates and radius of the circles
+            for (x, y, r) in circles:
+                # draw the circle in the output image, then draw a rectangle
+                # corresponding to the center of the circle
+                cv2.circle(output, (x, y), r, (0, 255, 0), 4)
+                cv2.rectangle(output, (x - 5, y - 5), (x + 5, y + 5), (0, 128, 255), -1)
+
+
+        st.image(output)
+
         
-
-        # Edited
-        gray = cv2.cvtColor(uploaded_file, cv2.COLOR_BGR2GRAY)
-        img = cv2.medianBlur(gray, 5)
-
-        cimg = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
-
-        circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1,120, param1=100, param2=30, minRadius=0, maxRadius=0)
-        circles = np.uint16(np.around(circles))
-
-        for i in circles[0, :]:
-            # Outer Circle
-            cv2.circle(uploaded_file, (i[0], i[1]), i[2], (0,255,0), 2)
-
-            # center circle
-            cv2.circle(uploaded_file, (i[0], i[1]), 2, (0,255,0), 3)
-        # End Edited
-        st.image(uploaded_file)
-
         # col1, col2 = st.columns( [0.5, 0.5])
         # with col1:
         #     st.markdown('<p style="text-align: center;">Before</p>',unsafe_allow_html=True)
