@@ -10,16 +10,15 @@ def main():
     st.title("Circle Detection App")
     st.text("loremdsadasdasdasd")
 
-    uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
+    uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
 
     #Add 'before' and 'after' columns
     if uploaded_file is not None:
-        image = Image.open(uploaded_file)
-        
+        # image = Image.open(uploaded_file)
+        st.sidebar.image(uploaded_file)
         col1, col2 = st.columns( [0.5, 0.5])
         with col1:
             st.markdown('<p style="text-align: center;">Before</p>',unsafe_allow_html=True)
-            st.image(image,width=300)  
 
         with col2:
             st.markdown('<p style="text-align: center;">After</p>',unsafe_allow_html=True)
