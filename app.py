@@ -16,7 +16,7 @@ def main():
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         st.sidebar.image(uploaded_file)
-        gray_scale = cv2.cvtColor(uploaded_file, cv2.COLOR_RGB2GRAY)
+        #gray_scale = cv2.cvtColor(uploaded_file, cv2.COLOR_RGB2GRAY)
         # img = cv2.medianBlur(gray_scale, 5)
 
 
