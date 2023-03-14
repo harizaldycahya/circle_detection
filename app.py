@@ -9,7 +9,14 @@ def main():
     """ Judul Aplikasi """
     st.title("Circle Detection App")
     st.text("loremdsadasdasdasd")
-
+    maxRadiusInput = st.sidebar.slider(
+        'Select a range of values',
+        0.0, 100.0, (25.0, 75.0))
+    st.write('Values:', values)
+    minRadiusInput = st.sidebar.slider(
+        'Select a range of values',
+        0.0, 100.0, (25.0, 75.0))
+    st.write('Values:', values)
     uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
 
     #Add 'before' and 'after' columns
@@ -23,7 +30,7 @@ def main():
         rows = gray_scale.shape[0]
         circles = cv2.HoughCircles(gray_scale, cv2.HOUGH_GRADIENT, 1, rows / 8,
                                 param1=100, param2=30,
-                                minRadius=0, maxRadius=0)
+                                minRadius=minRadiusInput, maxRadius=maxRadiusInput)
 
 
         if circles is not None:
