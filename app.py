@@ -20,7 +20,10 @@ def main():
         gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
         # img = cv2.medianBlur(gray_scale, 5)
         gray_scale = cv2.medianBlur(gray_scale, 5)
-
+        rows = gray_scale.shape[0]
+        circles = cv.HoughCircles(gray_scale, cv.HOUGH_GRADIENT, 1, rows / 8,
+                                param1=100, param2=30,
+                                minRadius=1, maxRadius=30)
         st.image(gray_scale)
 
 if __name__ == '__main__':
