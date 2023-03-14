@@ -20,7 +20,7 @@ def main():
         # img = cv2.medianBlur(gray_scale, 5)
 
 
-        st.image(gray_scale)
+        st.image(uploaded_file)
 
         # col1, col2 = st.columns( [0.5, 0.5])
         # with col1:
