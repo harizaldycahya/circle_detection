@@ -12,7 +12,7 @@ def main():
     maxRadiusInput = st.sidebar.slider(
         'Select a range of values',
         0, 100, (25, 75))
-    tipe=isinstance(maxRadiusInput)
+    tipe=type(maxRadiusInput)
     st.write(tipe)
     st.write('Max Radius:', maxRadiusInput)
     uploaded_file = st.sidebar.file_uploader("", type=['jpg','png','jpeg'])
